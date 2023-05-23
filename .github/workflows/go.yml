@@ -42,10 +42,10 @@ jobs:
       uses: Azure/webapps-deploy@v2
       with:
         # Name of the Azure Web App
-        app-name: Go-Mini-API
+        app-name: Mini-API-BUILD
         # Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
         package: build/
-        publish-profile: ${{ secrets.AZURE_WEBAPP_DEPLOYEMENT_PROFILE }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PROFILE }}
 
   # deploy:
   #   runs-on: windows-latest
