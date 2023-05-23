@@ -66,5 +66,5 @@ jobs:
       with:
         app-name: 'Mini-API-BUILD'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AZURE_WEBAPP_DEPLOYEMENT_PROFILE }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PROFILE }}
         package: .
