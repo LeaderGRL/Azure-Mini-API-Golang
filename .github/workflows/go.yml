@@ -18,10 +18,10 @@ jobs:
         go-version: 1.19
 
     - name: Copy static model files
-      run: xcopy /i Model build\Model
+      run: xcopy /i Model Build\Model
 
     - name: Copy static public files
-      run: xcopy /i View build\View
+      run: xcopy /i View Build\View
 
     - name: Build
       run: go build -o build/go-mini-API.exe -v
