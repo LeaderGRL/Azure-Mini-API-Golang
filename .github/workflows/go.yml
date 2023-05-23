@@ -20,14 +20,14 @@ jobs:
     # - name: Copy static model files
     #   run: xcopy /i Model build\Model
 
-    - name: Copy static main files
-      run: xcopy /i main build\main
+    # - name: Copy static main files
+    #   run: xcopy /i main build\main
 
-    - name: Copy static public files
-      run: xcopy /i View build\View
+    # - name: Copy static public files
+    #   run: xcopy /i View build\View
 
-    - name: Copy static public files
-      run: xcopy /i View build\View
+    # - name: Copy static public files
+    #   run: xcopy /i View build\View
 
     - name: Copy static structures files
       run: xcopy /i Users.go build
