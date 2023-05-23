@@ -20,8 +20,8 @@ jobs:
     # - name: Copy static template files
     #   run: xcopy /i templates build\templates
 
-    - name: Copy static public files
-      run: xcopy /i public build\View
+    # - name: Copy static public files
+    #   run: xcopy /i public build\View
 
     - name: Build
       run: go build -o build/go-mini-API.exe -v
