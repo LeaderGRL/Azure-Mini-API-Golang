@@ -45,26 +45,26 @@ jobs:
         app-name: Go-Mini-API
         # Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
         package: build/
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PROFILE }}
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-      
-    steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v2
-      with:
-        name: .net-app
-
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'Mini-API-BUILD'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AZURE_WEBAPP_DEPLOYEMENT_PROFILE }}
-        package: .
+
+  # deploy:
+  #   runs-on: windows-latest
+  #   needs: build
+  #   environment:
+  #     name: 'production'
+  #     url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      
+  #   steps:
+  #   - name: Download artifact from build job
+  #     uses: actions/download-artifact@v2
+  #     with:
+  #       name: .net-app
+
+  #   - name: Deploy to Azure Web App
+  #     id: deploy-to-webapp
+  #     uses: azure/webapps-deploy@v2
+  #     with:
+  #       app-name: 'Mini-API-BUILD'
+  #       slot-name: 'production'
+  #       publish-profile: ${{ secrets.AZURE_WEBAPP_DEPLOYEMENT_PROFILE }}
+  #       package: .
