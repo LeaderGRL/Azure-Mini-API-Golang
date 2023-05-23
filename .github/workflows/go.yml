@@ -1,0 +1,61 @@
+name: Build Go Mini API
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+
+    - name: Copy static template files
+      run: xcopy /i templates build\templates
+
+    - name: Copy static public files
+      run: xcopy /i public build\public
+
+    - name: Build
+      run: go build -o build/go-mini-API.exe -v
+
+    - name: Test
+      run: go test
+      
+    - name: Deploy to Azure
+      uses: Azure/webapps-deploy@v2
+      with:
+        # Name of the Azure Web App
+        app-name: Go-Mini-API
+        # Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy
+        package: build/
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PROFILE }}
+
+  deploy:
+    runs-on: windows-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      
+    steps:
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v2
+      with:
+        name: .net-app
+
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'Mini-API-BUILD'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PROFILE }}
+        package: .
