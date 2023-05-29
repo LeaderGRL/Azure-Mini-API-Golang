@@ -23,14 +23,14 @@ jobs:
     - name: Copy static main files
       run: xcopy /i main build\main
 
-    - name: Copy static public files
-      run: xcopy /i View build\View
+    # - name: Copy static public files
+    #   run: xcopy /i View build\View
 
     # - name: Copy static public files
     #   run: xcopy /i View build\View
 
-    - name: Copy static structures files
-      run: xcopy /i Users.go build
+    # - name: Copy static structures files
+    #   run: xcopy /i Users.go build
 
     - name: Build
       run: go build -o build/go-mini-API.exe -v
