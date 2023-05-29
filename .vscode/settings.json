@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/38ed2686-ccd7-4ec9-ac94-00d3f4aef073/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/AZUREGOTEST",
+    "appService.deploySubpath": "."
+}

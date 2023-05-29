@@ -33,7 +33,7 @@ CreateUserForm.addEventListener('submit', function(event) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
-    })
+    }) 
     .then(function(response) {
         return response.json();
     })
