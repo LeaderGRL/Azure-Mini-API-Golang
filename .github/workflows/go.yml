@@ -26,8 +26,8 @@ jobs:
     - name: Copy static public files
       run: xcopy /i View build\View
 
-    - name: Copy static public files
-      run: xcopy /i View build\View
+    # - name: Copy static public files
+    #   run: xcopy /i View build\View
 
     - name: Copy static structures files
       run: xcopy /i Users.go build
