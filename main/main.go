@@ -33,7 +33,7 @@ func main() {
 	}
 
 	fmt.Println("Listening on port " + port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	//log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 func getUsers(w http.ResponseWriter, r *http.Request) {
